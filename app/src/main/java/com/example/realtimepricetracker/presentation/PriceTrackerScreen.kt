@@ -112,7 +112,6 @@ fun ConnectionStatusIndicator(
     val (icon, label) = remember(status, isRunning) {
         when {
             !isRunning -> "🔴" to "Disconnected"
-            status == ConnectionStatus.Connecting -> "🟡" to "Connecting"
             status == ConnectionStatus.Connected -> "🟢" to "Connected"
             else -> "🔴" to "Disconnected"
         }

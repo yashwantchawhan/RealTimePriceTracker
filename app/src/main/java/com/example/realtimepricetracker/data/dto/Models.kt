@@ -1,5 +1,4 @@
 package com.example.realtimepricetracker.data.dto
-
 data class StockPrice(
     val symbol: String,
     val price: Double,
@@ -7,4 +6,4 @@ data class StockPrice(
     val lastUpdatedMillis: Long? = null
 )
 
-enum class ConnectionStatus { Connecting, Connected, Disconnected }
+enum class ConnectionStatus {Connected, Disconnected }

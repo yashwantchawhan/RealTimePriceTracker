@@ -39,7 +39,6 @@ class PricingServiceTest {
         assertEquals(ConnectionStatus.Disconnected, service.connectionStatus.value)
 
         service.connect()
-        assertEquals(ConnectionStatus.Connecting, service.connectionStatus.value)
 
         val response = Response.Builder()
             .request(Request.Builder().url("https://example.com").build())

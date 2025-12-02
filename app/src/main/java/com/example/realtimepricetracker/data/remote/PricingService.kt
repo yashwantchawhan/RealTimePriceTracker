@@ -13,9 +13,7 @@ class PricingService @Inject constructor(
     private val client: OkHttpClient,
     private val url: String
 ) {
-
     private var webSocket: WebSocket? = null
-
     private val _incomingMessages = MutableSharedFlow<String>(
         replay = 0,
         extraBufferCapacity = 64,
@@ -49,17 +47,14 @@ class PricingService @Inject constructor(
 
     fun connect() {
         if (webSocket != null) return
-
         val request = Request.Builder().url(url).build()
         webSocket = client.newWebSocket(request, listener)
-
         _connectionStatus.value = ConnectionStatus.Connected
     }
 
     fun send(text: String) {
         webSocket?.send(text)
     }
-
     fun close() {
         webSocket?.close(1000, "Closing")
         webSocket = null
