@@ -118,4 +118,4 @@ Verifies:
 # Platform Requirements
 Platform	Version
 Android	    Min SDK 24
-            Target SDK 35
+            Target SDK 36
