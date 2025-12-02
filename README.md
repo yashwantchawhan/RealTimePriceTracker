@@ -17,13 +17,16 @@ An Android application built with Jetpack Compose, MVVM, and Clean Architecture 
 
 ## Screenshots
 
-<img width="280" height="400" alt="Screenshot_20251202_121006" src="https://github.com/user-attachments/assets/2c7f5bd1-fd32-4d67-8436-38d2618f26a5" />
-
-<img width="280" height="400" alt="Screenshot_20251202_121411" src="https://github.com/user-attachments/assets/e110e661-f05c-42f2-8f9a-7897396859c4" />
-
-![Screen_recording_20251202_121322-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/a71201f3-d052-496e-a298-852abb695476)
-
-![Screen_recording_20251202_121436-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/a4990d86-2398-4207-9ae1-128f4932c508)
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/2c7f5bd1-fd32-4d67-8436-38d2618f26a5" width="280" height="400" /></td>
+    <td><img src="https://github.com/user-attachments/assets/e110e661-f05c-42f2-8f9a-7897396859c4" width="280" height="400" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/a71201f3-d052-496e-a298-852abb695476" width="300" height="500" /></td>
+    <td><img src="https://github.com/user-attachments/assets/a4990d86-2398-4207-9ae1-128f4932c508" width="300" height="500" /></td>
+  </tr>
+</table>
 
 
 ## Technical Features
