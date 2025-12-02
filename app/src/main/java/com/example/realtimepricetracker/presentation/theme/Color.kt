@@ -1,4 +1,4 @@
-package com.example.realtimepricetracker.ui.theme
+package com.example.realtimepricetracker.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

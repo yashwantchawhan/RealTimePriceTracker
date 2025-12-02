@@ -1,4 +1,4 @@
-package com.example.realtimepricetracker.ui.theme
+package com.example.realtimepricetracker.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,4 +1,4 @@
-package com.example.realtimepricetracker
+package com.example.realtimepricetracker.presentation
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -12,7 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.realtimepricetracker.ui.theme.RealTimePriceTrackerTheme
+import com.example.realtimepricetracker.presentation.theme.RealTimePriceTrackerTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
