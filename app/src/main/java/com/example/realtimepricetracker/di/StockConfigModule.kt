@@ -11,7 +11,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object StockConfigModule {
-
     @Provides
     @Singleton
     fun provideStockConfig() = StockConfig(STOCK_SYMBOLS)

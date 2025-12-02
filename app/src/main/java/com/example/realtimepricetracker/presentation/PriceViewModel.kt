@@ -82,27 +82,29 @@ class PriceViewModel @Inject constructor(
         feedJob?.cancel()
         feedJob = null
     }
+    private val flashClearJobs = mutableMapOf<String, Job>()
 
     private fun observeFlashes() {
         viewModelScope.launch {
             repository.prices.collect { current ->
                 current.values.forEach { stock ->
-                    val prevPrice = stock.previousPrice
-                    if (prevPrice != null) {
-                        val flashState = when {
-                            stock.price > prevPrice -> PriceFlashState.Up
-                            stock.price < prevPrice -> PriceFlashState.Down
-                            else -> null
-                        }
+                    val prevPrice = stock.previousPrice ?: return@forEach
 
-                        if (flashState != null) {
-                            _flashStates.update { it + (stock.symbol to flashState) }
+                    val flashState = when {
+                        stock.price > prevPrice -> PriceFlashState.Up
+                        stock.price < prevPrice -> PriceFlashState.Down
+                        else -> null
+                    }
 
-                            viewModelScope.launch {
-                                delay(flashDurationMillis)
-                                _flashStates.update { map ->
-                                    if (map[stock.symbol] == flashState) map - stock.symbol else map
-                                }
+                    if (flashState != null) {
+                        _flashStates.update { it + (stock.symbol to flashState) }
+
+                        flashClearJobs[stock.symbol]?.cancel()
+
+                        flashClearJobs[stock.symbol] = viewModelScope.launch {
+                            delay(flashDurationMillis)
+                            _flashStates.update { map ->
+                                if (map[stock.symbol] == flashState) map - stock.symbol else map
                             }
                         }
                     }
@@ -171,5 +173,6 @@ class PriceViewModel @Inject constructor(
     override fun onCleared() {
         super.onCleared()
         repository.close()
+        flashClearJobs.clear()
     }
 }

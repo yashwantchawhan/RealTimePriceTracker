@@ -47,7 +47,6 @@ fun PriceTrackerRoute(
     viewModel: PriceViewModel
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
-
     PriceTrackerTheme {
         PriceTrackerScreen(
             state = state,
@@ -167,7 +166,7 @@ fun PriceList(
     ) {
         items(
             items = prices.prices,
-            key = { it.symbol } // stable key → stable subcomposition
+            key = { it.symbol }
         ) { row ->
             PriceRow(
                 item = row,
@@ -193,7 +192,6 @@ fun PriceRow(
             MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0f)
     }
 
-    // smooth flash in/out
     val flashBackgroundColor by animateColorAsState(
         targetValue = targetFlashColor,
         label = "priceFlashBackground"
@@ -210,7 +208,6 @@ fun PriceRow(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Symbol
             Text(
                 text = item.symbol,
                 style = MaterialTheme.typography.titleMedium.copy(
@@ -218,7 +215,6 @@ fun PriceRow(
                 )
             )
 
-            // Price chip + arrow
             Box(
                 modifier = Modifier
                     .background(

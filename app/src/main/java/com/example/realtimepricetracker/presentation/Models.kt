@@ -5,6 +5,7 @@ import com.example.realtimepricetracker.data.dto.ConnectionStatus
 import com.example.realtimepricetracker.domain.models.PriceChangeDirection
 import com.example.realtimepricetracker.domain.models.PriceFlashState
 
+@Immutable
 data class PriceTrackerUiState(
     val connectionStatus: ConnectionStatus = ConnectionStatus.Disconnected,
     val isFeedRunning: Boolean = false,
