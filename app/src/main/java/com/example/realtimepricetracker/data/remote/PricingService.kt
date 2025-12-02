@@ -1,6 +1,6 @@
 package com.example.realtimepricetracker.data.remote
 
-import com.example.realtimepricetracker.data.dto.ConnectionStatus
+import com.example.realtimepricetracker.domain.models.ConnectionStatus
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

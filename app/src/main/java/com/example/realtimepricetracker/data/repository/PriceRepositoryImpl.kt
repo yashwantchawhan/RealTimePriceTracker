@@ -1,9 +1,9 @@
 package com.example.realtimepricetracker.data.repository
 
 
-import com.example.realtimepricetracker.data.dto.ConnectionStatus
-import com.example.realtimepricetracker.data.dto.StockPrice
 import com.example.realtimepricetracker.data.remote.PricingService
+import com.example.realtimepricetracker.domain.models.ConnectionStatus
+import com.example.realtimepricetracker.domain.models.StockPrice
 import com.example.realtimepricetracker.domain.repository.PriceRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow

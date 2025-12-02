@@ -1,7 +1,7 @@
 package com.example.realtimepricetracker.presentation.fake
 
-import com.example.realtimepricetracker.data.dto.ConnectionStatus
-import com.example.realtimepricetracker.data.dto.StockPrice
+import com.example.realtimepricetracker.domain.models.ConnectionStatus
+import com.example.realtimepricetracker.domain.models.StockPrice
 import com.example.realtimepricetracker.domain.repository.PriceRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

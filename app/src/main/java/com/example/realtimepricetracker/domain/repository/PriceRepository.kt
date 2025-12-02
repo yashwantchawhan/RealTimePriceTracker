@@ -1,8 +1,8 @@
 package com.example.realtimepricetracker.domain.repository
 
 
-import com.example.realtimepricetracker.data.dto.ConnectionStatus
-import com.example.realtimepricetracker.data.dto.StockPrice
+import com.example.realtimepricetracker.domain.models.ConnectionStatus
+import com.example.realtimepricetracker.domain.models.StockPrice
 import kotlinx.coroutines.flow.StateFlow
 
 interface PriceRepository {

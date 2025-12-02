@@ -3,10 +3,10 @@ package com.example.realtimepricetracker.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.realtimepricetracker.core.utils.StockConfig
-import com.example.realtimepricetracker.data.dto.ConnectionStatus
-import com.example.realtimepricetracker.data.dto.StockPrice
+import com.example.realtimepricetracker.domain.models.ConnectionStatus
 import com.example.realtimepricetracker.domain.models.PriceChangeDirection
 import com.example.realtimepricetracker.domain.models.PriceFlashState
+import com.example.realtimepricetracker.domain.models.StockPrice
 import com.example.realtimepricetracker.domain.repository.PriceRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job

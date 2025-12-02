@@ -37,7 +37,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.realtimepricetracker.data.dto.ConnectionStatus
+import com.example.realtimepricetracker.domain.models.ConnectionStatus
+
 import com.example.realtimepricetracker.domain.models.PriceChangeDirection
 import com.example.realtimepricetracker.domain.models.PriceFlashState
 import com.example.realtimepricetracker.presentation.theme.PriceTrackerTheme

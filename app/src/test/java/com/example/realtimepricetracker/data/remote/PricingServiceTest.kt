@@ -1,7 +1,7 @@
 package com.example.realtimepricetracker.data.remote
 
 import app.cash.turbine.test
-import com.example.realtimepricetracker.data.dto.ConnectionStatus
+import com.example.realtimepricetracker.domain.models.ConnectionStatus
 import io.mockk.*
 import kotlinx.coroutines.test.runTest
 import okhttp3.*

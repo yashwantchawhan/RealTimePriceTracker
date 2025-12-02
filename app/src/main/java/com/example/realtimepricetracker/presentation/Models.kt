@@ -1,7 +1,7 @@
 package com.example.realtimepricetracker.presentation
 
 import androidx.compose.runtime.Immutable
-import com.example.realtimepricetracker.data.dto.ConnectionStatus
+import com.example.realtimepricetracker.domain.models.ConnectionStatus
 import com.example.realtimepricetracker.domain.models.PriceChangeDirection
 import com.example.realtimepricetracker.domain.models.PriceFlashState
 

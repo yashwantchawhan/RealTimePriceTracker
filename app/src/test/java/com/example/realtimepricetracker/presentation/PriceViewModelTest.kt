@@ -2,10 +2,10 @@ package com.example.realtimepricetracker.presentation
 
 
 import com.example.realtimepricetracker.core.utils.StockConfig
-import com.example.realtimepricetracker.data.dto.ConnectionStatus
-import com.example.realtimepricetracker.data.dto.StockPrice
+import com.example.realtimepricetracker.domain.models.ConnectionStatus
 import com.example.realtimepricetracker.domain.models.PriceChangeDirection
 import com.example.realtimepricetracker.domain.models.PriceFlashState
+import com.example.realtimepricetracker.domain.models.StockPrice
 import com.example.realtimepricetracker.helper.TestMainDispatcherRule
 import com.example.realtimepricetracker.presentation.fake.FakePriceRepository
 import org.junit.Assert.*
@@ -19,15 +19,10 @@ class PriceViewModelTest {
 
     private val symbols = listOf("AAPL", "GOOG")
 
-    private fun vm(repo: FakePriceRepository): PriceViewModel =
-        PriceViewModel(
-            repository = repo,
-            config = StockConfig(symbols)
-        )
+    private fun vm(repo: FakePriceRepository): PriceViewModel = PriceViewModel(
+        repository = repo, config = StockConfig(symbols)
+    )
 
-    // ----------------------------------------------------------------------
-    // TEST 1: INITIAL UI STATE
-    // ----------------------------------------------------------------------
     @Test
     fun `initial state shows placeholders for all symbols`() {
         val repo = FakePriceRepository()
@@ -46,22 +41,16 @@ class PriceViewModelTest {
         }
     }
 
-    // ----------------------------------------------------------------------
-    // TEST 2: PRICE UP FLASH
-    // ----------------------------------------------------------------------
     @Test
     fun `price increase triggers flash Up and direction Up`() {
         val repo = FakePriceRepository()
         val vm = vm(repo)
 
         val updated = StockPrice(
-            symbol = "AAPL",
-            price = 200.0,
-            previousPrice = 150.0,
-            lastUpdatedMillis = 0L
+            symbol = "AAPL", price = 200.0, previousPrice = 150.0, lastUpdatedMillis = 0L
         )
 
-        repo.emitPrices(mapOf("AAPL" to updated))
+        repo.emitPrices(mapOf("AAPL" to updated) as Map<String, StockPrice>)
 
         val row = vm.uiState.value.priceList.prices.first { it.symbol == "AAPL" }
 
@@ -70,22 +59,16 @@ class PriceViewModelTest {
         assertEquals(PriceFlashState.Up, row.flashState)
     }
 
-    // ----------------------------------------------------------------------
-    // TEST 3: PRICE DOWN FLASH
-    // ----------------------------------------------------------------------
     @Test
     fun `price decrease triggers flash Down and direction Down`() {
         val repo = FakePriceRepository()
         val vm = vm(repo)
 
         val updated = StockPrice(
-            symbol = "AAPL",
-            price = 90.0,
-            previousPrice = 120.0,
-            lastUpdatedMillis = 0L
+            symbol = "AAPL", price = 90.0, previousPrice = 120.0, lastUpdatedMillis = 0L
         )
 
-        repo.emitPrices(mapOf("AAPL" to updated))
+        repo.emitPrices(mapOf("AAPL" to updated) as Map<String, StockPrice>)
 
         val row = vm.uiState.value.priceList.prices.first { it.symbol == "AAPL" }
 
@@ -94,22 +77,16 @@ class PriceViewModelTest {
         assertEquals(PriceFlashState.Down, row.flashState)
     }
 
-    // ----------------------------------------------------------------------
-    // TEST 4: FEED TOGGLE
-    // ----------------------------------------------------------------------
     @Test
     fun `toggleFeed switches feed state`() {
         val repo = FakePriceRepository()
         val vm = vm(repo)
 
-        // Initially false
         assertFalse(vm.uiState.value.isFeedRunning)
 
-        // Turn ON
         vm.toggleFeed()
         assertTrue(vm.uiState.value.isFeedRunning)
 
-        // Turn OFF
         vm.toggleFeed()
         assertFalse(vm.uiState.value.isFeedRunning)
     }

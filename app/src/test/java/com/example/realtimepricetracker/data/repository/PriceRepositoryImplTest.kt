@@ -1,7 +1,7 @@
 package com.example.realtimepricetracker.data.repository
 
-import com.example.realtimepricetracker.data.dto.ConnectionStatus
 import com.example.realtimepricetracker.data.remote.PricingService
+import com.example.realtimepricetracker.domain.models.ConnectionStatus
 import com.example.realtimepricetracker.helper.TestMainDispatcherRule
 import io.mockk.every
 import io.mockk.mockk
