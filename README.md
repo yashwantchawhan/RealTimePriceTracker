@@ -17,13 +17,18 @@ An Android application built with Jetpack Compose, MVVM, and Clean Architecture 
 
 ## Screenshots
 
-![Uploading Screenshot_20251202_121006.png…]()
+<img width="250" height="350" alt="Screenshot_20251202_121006" src="https://github.com/user-attachments/assets/2c7f5bd1-fd32-4d67-8436-38d2618f26a5" />
 
-![Uploading Screenshot_20251202_121411.png…]()
+<img width="250" height="350" alt="Screenshot_20251202_121411" src="https://github.com/user-attachments/assets/e110e661-f05c-42f2-8f9a-7897396859c4" />
 
-[Uploading Screen_recording_20251202_121322.webm…]()
+[Screen_recording_20251202_121322.webm](https://github.com/user-attachments/assets/80d22e82-9b4e-442d-928c-f1c668d3f9c7)
 
-[Uploading Screen_recording_20251202_121436.webm…]()
+
+[Screen_recording_20251202_121436.webm](https://github.com/user-attachments/assets/ed6dcb50-776f-43ac-b24c-e2bba633ad1e)
+
+
+
+
 
 
 ## Technical Features
