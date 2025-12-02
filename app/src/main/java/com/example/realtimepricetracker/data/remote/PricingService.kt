@@ -49,9 +49,11 @@ class PricingService @Inject constructor(
 
     fun connect() {
         if (webSocket != null) return
-        _connectionStatus.value = ConnectionStatus.Connecting
+
         val request = Request.Builder().url(url).build()
         webSocket = client.newWebSocket(request, listener)
+
+        _connectionStatus.value = ConnectionStatus.Connected
     }
 
     fun send(text: String) {

@@ -55,3 +55,31 @@ fun RealTimePriceTrackerTheme(
         content = content
     )
 }
+
+
+object PriceTrackerColors {
+    val Dark = darkColorScheme(
+        background = androidx.compose.ui.graphics.Color(0xFF05030A),
+        surface = androidx.compose.ui.graphics.Color(0xFF15111F),
+        surfaceVariant = androidx.compose.ui.graphics.Color(0xFF262033),
+        primary = androidx.compose.ui.graphics.Color(0xFF8B6EFF),
+        error = androidx.compose.ui.graphics.Color(0xFFFF6B81)
+    )
+
+    val Light = lightColorScheme()
+}
+
+@Composable
+fun PriceTrackerTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
+    val colors = if (darkTheme) PriceTrackerColors.Dark else PriceTrackerColors.Light
+
+    MaterialTheme(
+        colorScheme = colors,
+        typography = MaterialTheme.typography,
+        shapes = MaterialTheme.shapes,
+        content = content
+    )
+}

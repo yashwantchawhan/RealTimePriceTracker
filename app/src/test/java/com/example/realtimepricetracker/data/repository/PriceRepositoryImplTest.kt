@@ -37,7 +37,7 @@ class PriceRepositoryImplTest {
         every { pricingService.incomingMessages } returns incomingMessages
         every { pricingService.connectionStatus } returns connectionStatusFlow
 
-        externalScope = TestScope(dispatcherRule.testDispatcher)
+        externalScope = TestScope(dispatcherRule.dispatcher)
     }
 
     @Test

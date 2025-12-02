@@ -1,24 +1,30 @@
 package com.example.realtimepricetracker.helper
 
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.TestDispatcher
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
-import org.junit.rules.TestWatcher
+import org.junit.rules.TestRule
 import org.junit.runner.Description
+import org.junit.runners.model.Statement
 
-@ExperimentalCoroutinesApi
-class TestMainDispatcherRule(
-    val testDispatcher: TestDispatcher = UnconfinedTestDispatcher()
-) : TestWatcher() {
+@OptIn(ExperimentalCoroutinesApi::class)
+class TestMainDispatcherRule : TestRule {
 
-    override fun starting(description: Description) {
-        Dispatchers.setMain(testDispatcher)
-    }
+     val dispatcher = UnconfinedTestDispatcher()
 
-    override fun finished(description: Description) {
-        Dispatchers.resetMain()
+    override fun apply(base: Statement, description: Description): Statement {
+        return object : Statement() {
+            override fun evaluate() {
+                Dispatchers.setMain(dispatcher)
+                try {
+                    base.evaluate()
+                } finally {
+                    Dispatchers.resetMain()
+                }
+            }
+        }
     }
 }
