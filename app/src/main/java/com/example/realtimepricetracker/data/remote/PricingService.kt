@@ -7,10 +7,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import okhttp3.*
+import javax.inject.Inject
 
-class PricingService(
-    private val client: OkHttpClient = OkHttpClient(),
-    private val url: String = "wss://ws.postman-echo.com/raw",
+class PricingService @Inject constructor(
+    private val client: OkHttpClient,
+    private val url: String
 ) {
 
     private var webSocket: WebSocket? = null
