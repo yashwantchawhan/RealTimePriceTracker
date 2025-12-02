@@ -27,22 +27,16 @@ An Android application built with Jetpack Compose, MVVM, and Clean Architecture 
 [Screen_recording_20251202_121436.webm](https://github.com/user-attachments/assets/ed6dcb50-776f-43ac-b24c-e2bba633ad1e)
 
 
-
-
-
-
 ## Technical Features
-- Jetpack Compose: Declarative UI framework for building native UI.
-
-- Clean Architecture: Modularized layers (UI, domain, data).
-
-- Hilt: Dependency injection across modules.
-
-- Retrofit: Network layer for API calls.
-
-- Coroutines + Flow: Async operations with lifecycle-aware streams.
-
-- Turbine + Mockk: Reactive unit testing for ViewModels and repositories.
+- Jetpack Compose
+- Declarative UI with LazyColumn, Material3, and composable previews.
+- Subtle row animations via animateItemPlacement and animateColorAsState.
+- Clean Architecture
+- Clear separation between:
+- data: WebSocket adapter + repository implementation
+- domain: repository interface + core models
+- presentation: ViewModel, UI state, and composables
+- MVVM + UDF
 
 ## Directory Structure
 ```
